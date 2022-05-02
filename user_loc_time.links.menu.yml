@@ -1,0 +1,5 @@
+user_loc_time.settings:
+  title: 'User Location & Time settings'
+  description: 'Configure the User Location & Time settings module.'
+  route_name: user_loc_time.settings
+  parent: system.admin_config_system

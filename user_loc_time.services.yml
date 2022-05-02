@@ -1,0 +1,4 @@
+services:
+  user_loc_time.custom_services:
+    class: Drupal\user_loc_time\CustomService
+    arguments: ['@config.factory']

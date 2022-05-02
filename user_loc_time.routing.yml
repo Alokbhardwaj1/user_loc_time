@@ -1,0 +1,7 @@
+user_loc_time.settings:
+  path: '/admin/config/system/user-location-time-settings'
+  defaults:
+    _form: '\Drupal\user_loc_time\Form\UserLocationTimeSettingsForm'
+    _title: 'User Location & Time settings'
+  requirements:
+    _permission: 'administer site configuration'
