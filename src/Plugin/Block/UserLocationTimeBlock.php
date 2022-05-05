@@ -28,30 +28,32 @@ class UserLocationTimeBlock extends BlockBase implements ContainerFactoryPluginI
   /**
    * The config factory.
    *
-   * @var \Drupal\user_loc_time\customService
+   * @var \Drupal\user_loc_time\CustomService
    */
   protected $customService;
 
   /**
+   * UserLocationTimeBlock constructor.
+   *
    * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
    * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
-   * @param  \Drupal\Core\Config\ConfigFactoryInterface $configFactory
-   * @param \Drupal\user_loc_time\customService $customService
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   *   The configuration factory.
+   * @param \Drupal\user_loc_time\CustomService $customService
+   *   The custom service for render current datetime.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, ConfigFactoryInterface $config_factory, CustomService $customService) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, ConfigFactoryInterface $configFactory, CustomService $customService) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->configFactory = $config_factory;
+    $this->configFactory = $configFactory;
     $this->customService = $customService;
   }
 
   /**
-   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
-   * @param array $configuration
-   * @param string $plugin_id
-   * @param mixed $plugin_definition
-   *
-   * @return static
+   * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
@@ -76,7 +78,6 @@ class UserLocationTimeBlock extends BlockBase implements ContainerFactoryPluginI
       '#country' => $country,
       '#city' => $city,
       '#current_time' => $current_time,
-      '#cache' => ['max-age' => 0],
     ];
   }
 

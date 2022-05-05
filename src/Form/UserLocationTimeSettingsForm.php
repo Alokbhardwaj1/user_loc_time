@@ -2,36 +2,15 @@
 
 namespace Drupal\user_loc_time\Form;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class UserLocationTimeSettingsForm. The config form for the User Location & Time Settings module.
+ * Defines a class for the User Location & Time Settings.
  *
  * @package Drupal\user_loc_time\Form
  */
 class UserLocationTimeSettingsForm extends ConfigFormBase {
-
-  /**
-   * UserLocationTimeSettingsForm constructor.
-   *
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The config factory for the form.
-   */
-  public function __construct(ConfigFactoryInterface $config_factory) {
-    parent::__construct($config_factory);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('config.factory'),
-    );
-  }
 
   /**
    * {@inheritDoc}
